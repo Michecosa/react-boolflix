@@ -1,3 +1,6 @@
+import { NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
+
 function Footer() {
   return (
     <>
@@ -7,35 +10,38 @@ function Footer() {
             <div className="row mt-3">
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">
-                  <i className="fas fa-gem me-3"></i>Company name
+                  <NavLink className="navbar-brand" to="/">
+                    <img
+                      src={logo}
+                      alt="Boolflix logo"
+                      className="d-inline-block align-middle"
+                      style={{ height: "28px" }}
+                    />
+                  </NavLink>
                 </h6>
-                <p>
-                  Here you can use rows and columns to organize your footer
-                  content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit.
-                </p>
+                <p>Hire me please</p>
               </div>
 
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+                <h6 className="text-uppercase fw-bold mb-4">Questions</h6>
                 <p>
                   <a href="#!" className="text-reset">
-                    Angular
+                    FAQ
                   </a>
                 </p>
                 <p>
                   <a href="#!" className="text-reset">
-                    React
+                    Investor Relations
                   </a>
                 </p>
                 <p>
                   <a href="#!" className="text-reset">
-                    Vue
+                    Ways to Watch
                   </a>
                 </p>
                 <p>
                   <a href="#!" className="text-reset">
-                    Laravel
+                    Corporate Information
                   </a>
                 </p>
               </div>
@@ -66,19 +72,10 @@ function Footer() {
 
               <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-                <p>
-                  <i className="fas fa-home me-3"></i> New York, NY 10012, US
-                </p>
-                <p>
-                  <i className="fas fa-envelope me-3"></i>
-                  info@example.com
-                </p>
-                <p>
-                  <i className="fas fa-phone me-3"></i> + 01 234 567 88
-                </p>
-                <p>
-                  <i className="fas fa-print me-3"></i> + 01 234 567 89
-                </p>
+                <p>Los Gatos, CA 95032, USA</p>
+                <p>help@netflix.com</p>
+                <p>+1 408 540 3700</p>
+                <p>+1 408 540 3701</p>
               </div>
             </div>
           </div>
@@ -88,9 +85,13 @@ function Footer() {
           className="text-center p-4"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
         >
-          © 2021 Copyright:
-          <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-            MDBootstrap.com
+          © 2025 Copyright:
+          <a
+            className="text-reset fw-bold ms-2"
+            href="https://github.com/Michecosa"
+            target="_blank"
+          >
+            Michela Della Gatta
           </a>
         </div>
       </footer>

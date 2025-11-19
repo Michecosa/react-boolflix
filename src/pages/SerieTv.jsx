@@ -33,8 +33,10 @@ function SerieTv() {
                   <h5 className="card-title">{movie.name}</h5>
                   <p className="card-text" style={{ flexGrow: 1 }}>
                     {movie.overview
-                      ? movie.overview
-                      : "Nessuna descrizione disponibile."}
+                      ? movie.overview.length > 100
+                        ? movie.overview.slice(0, 100) + "..."
+                        : movie.overview
+                      : "No description found"}
                   </p>
                   <a
                     href={`https://www.themoviedb.org/tv/${movie.id}`}

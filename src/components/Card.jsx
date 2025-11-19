@@ -34,7 +34,9 @@ function Card({ movie }) {
               : "No description found"}
           </p>
           <a
-            href={`https://www.themoviedb.org/tv/${movie.id}`}
+            href={`https://www.themoviedb.org/${movie.title ? "movie" : "tv"}/${
+              movie.id
+            }`}
             target="_blank"
             className="btn btn-danger mt-auto"
           >

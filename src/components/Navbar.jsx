@@ -8,9 +8,8 @@ function Navbar() {
           <img
             src={logo}
             alt="Boolflix logo"
-            width="auto"
-            height="24"
-            className="d-inline-block align-text-top"
+            className="d-inline-block align-middle"
+            style={{ height: "28px" }}
           />
         </NavLink>
         <button

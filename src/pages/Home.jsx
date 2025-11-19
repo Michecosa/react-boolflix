@@ -26,8 +26,9 @@ function Home() {
           style={{
             display: "flex",
             gap: "10px",
-            overflow: "hidden",
-            whiteSpace: "nowrap",
+            overflowX: "auto",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
         >
           {movies.map((movie) => (

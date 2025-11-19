@@ -5,7 +5,7 @@ function Card({ movie }) {
         {movie.poster_path ? (
           <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={movie.name}
+            alt={movie.name || movie.title}
           />
         ) : (
           <div
@@ -16,7 +16,7 @@ function Card({ movie }) {
           </div>
         )}
         <div className="card-body d-flex flex-column">
-          <h5 className="card-title">{movie.name}</h5>
+          <h5 className="card-title">{movie.name || movie.title}</h5>
           <p className="card-text" style={{ flexGrow: 1 }}>
             {movie.overview
               ? movie.overview.length > 100

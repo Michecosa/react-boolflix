@@ -6,10 +6,11 @@ import Film from "./pages/Film";
 import Originali from "./pages/Originali";
 import AggiuntiDiRecente from "./pages/AggiuntiDiRecente";
 import LaMiaLista from "./pages/LaMiaLista";
+import { SearchProvider } from "./context/SearchContext";
 
 function App() {
   return (
-    <>
+    <SearchProvider>
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
@@ -22,7 +23,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </SearchProvider>
   );
 }
 

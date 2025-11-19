@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 function Footer() {
@@ -10,14 +10,14 @@ function Footer() {
             <div className="row mt-3">
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">
-                  <NavLink className="navbar-brand" to="/">
+                  <Link className="navbar-brand" to="/">
                     <img
                       src={logo}
                       alt="Boolflix logo"
                       className="d-inline-block align-middle"
                       style={{ height: "28px" }}
                     />
-                  </NavLink>
+                  </Link>
                 </h6>
                 <p>Hire me please</p>
               </div>

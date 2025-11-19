@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
+import Card from "../components/Card";
 
 function Home() {
   const { movies, setMovies, setQuery } = useContext(SearchContext);
@@ -10,17 +11,15 @@ function Home() {
   }, [setMovies, setQuery]);
 
   return (
-    <div>
+    <div className="container mt-4">
       {movies.length > 0 ? (
-        <ul>
+        <div className="row">
           {movies.map((movie) => (
-            <li key={movie.id}>
-              {movie.title} ({movie.overview})
-            </li>
+            <Card key={movie.id} movie={movie} />
           ))}
-        </ul>
+        </div>
       ) : (
-        <p>Nessun film cercato</p>
+        <p className="text-center mt-4">Nothing here</p>
       )}
     </div>
   );

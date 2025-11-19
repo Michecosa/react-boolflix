@@ -1,7 +1,7 @@
 function Card({ movie }) {
   return (
     <div className="col-md-3 mb-4" key={movie.id}>
-      <div className="card h-100">
+      <div className="card bg-super-dark text-white-50 shadow-sm h-100">
         <div style={{ height: "390px", overflow: "hidden" }}>
           {movie.poster_path ? (
             <img
@@ -24,8 +24,10 @@ function Card({ movie }) {
             </div>
           )}
         </div>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title">{movie.name || movie.title}</h5>
+        <div className="card-body d-flex flex-column p-4">
+          <h4 className="card-title text-white fw-bold">
+            {movie.name || movie.title}
+          </h4>
           <p className="card-text" style={{ flexGrow: 1 }}>
             {movie.overview
               ? movie.overview.length > 100

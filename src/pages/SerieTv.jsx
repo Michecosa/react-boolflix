@@ -19,7 +19,7 @@ function SerieTv() {
           ))}
         </div>
       ) : (
-        <p className="text-center mt-4">Nothing here</p>
+        <p className="text-center mt-4 text-white">Nothing here</p>
       )}
     </div>
   );

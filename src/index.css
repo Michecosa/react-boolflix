@@ -1,0 +1,24 @@
+.bg-super-super-dark {
+  background-color: #0d0d0d;
+}
+
+.bg-super-dark {
+  background-color: #131313;
+}
+
+.card {
+  border-color: black;
+}
+
+.input-dark::placeholder {
+  color: #ccc;
+  opacity: 1;
+}
+
+.form-control:focus {
+  background-color: #131313;
+  color: #fdfdfd;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(232, 232, 232, 0.063);
+}

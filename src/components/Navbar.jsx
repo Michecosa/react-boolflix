@@ -34,7 +34,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-super-super-dark">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           <img
@@ -90,15 +90,16 @@ function Navbar() {
           </ul>
           <form className="d-flex" role="search" onSubmit={handleSearch}>
             <input
-              className="form-control me-2"
+              className="form-control me-2 bg-super-dark text-white border-0 input-dark"
               type="search"
               placeholder="Search movie"
               aria-label="Search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <button className="btn btn-outline-danger" type="submit">
-              Search
+
+            <button className="btn text-white" type="submit">
+              <i className="bi bi-search"></i>
             </button>
           </form>
         </div>

@@ -8,17 +8,23 @@ function Navbar() {
   const { setMovies, query, setQuery } = useContext(SearchContext);
   const api_key = import.meta.env.VITE_TMDB_KEY;
   const location = useLocation();
-  console.log(location);
 
   const handleSearch = (e) => {
     e.preventDefault();
 
+    let endpoint = "";
+    if (location.pathname === "/SerieTv") {
+      endpoint = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${encodeURIComponent(
+        query
+      )}`;
+    } else {
+      endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${encodeURIComponent(
+        query
+      )}`;
+    }
+
     axios
-      .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${encodeURIComponent(
-          query
-        )}`
-      )
+      .get(endpoint)
       .then((response) => {
         setMovies(response.data.results);
       })

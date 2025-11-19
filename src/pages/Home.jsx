@@ -10,7 +10,7 @@ function Home() {
         <ul>
           {movies.map((movie) => (
             <li key={movie.id}>
-              {movie.title} ({movie.release_date})
+              {movie.title} ({movie.overview})
             </li>
           ))}
         </ul>

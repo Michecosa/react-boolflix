@@ -1,8 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
 
 function Home() {
-  const { movies } = useContext(SearchContext);
+  const { movies, setMovies, setQuery } = useContext(SearchContext);
+
+  useEffect(() => {
+    setMovies([]);
+    setQuery("");
+  }, [setMovies, setQuery]);
 
   return (
     <div>

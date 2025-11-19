@@ -56,9 +56,17 @@ function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <span className="navbar-text">
-            Navbar text with an inline element
-          </span>
+          <form className="d-flex" role="search">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search movie"
+              aria-label="Search"
+            />
+            <button className="btn btn-outline-danger" type="submit">
+              Search
+            </button>
+          </form>
         </div>
       </div>
     </nav>

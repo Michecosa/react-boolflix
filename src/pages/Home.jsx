@@ -18,13 +18,20 @@ function Home() {
   }, [setMovies, api_key]);
 
   return (
-    <div className="container mt-4">
+    <div className="m-4">
       <h2 className="text-white mb-4">Di tendenza</h2>
 
       {movies.length > 0 ? (
-        <div className="row g-0">
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+          }}
+        >
           {movies.map((movie) => (
-            <div style={{ width: "300px", overflow: "hidden" }}>
+            <div key={movie.id} style={{ minWidth: "200px", flexShrink: 0 }}>
               {movie.poster_path ? (
                 <img
                   src={`https://image.tmdb.org/t/p/w500${
@@ -33,14 +40,14 @@ function Home() {
                   alt={movie.name || movie.title}
                   style={{
                     width: "100%",
-                    height: "100%",
+                    height: "300px",
                     objectFit: "cover",
                   }}
                 />
               ) : (
                 <div
                   className="d-flex align-items-center justify-content-center bg-secondary text-white"
-                  style={{ height: "100%" }}
+                  style={{ height: "300px", borderRadius: "8px" }}
                 >
                   No image found
                 </div>

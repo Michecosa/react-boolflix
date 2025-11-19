@@ -1,6 +1,30 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { SearchContext } from "../context/SearchContext";
+import axios from "axios";
+
 function Navbar() {
+  const { setMovies, query, setQuery } = useContext(SearchContext);
+  const api_key = import.meta.env.VITE_TMDB_KEY;
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${encodeURIComponent(
+          query
+        )}`
+      )
+      .then((response) => {
+        setMovies(response.data.results);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -56,12 +80,14 @@ function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          <form className="d-flex" role="search" onSubmit={handleSearch}>
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search movie"
               aria-label="Search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
             <button className="btn btn-outline-danger" type="submit">
               Search

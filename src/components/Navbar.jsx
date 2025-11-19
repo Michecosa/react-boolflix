@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { SearchContext } from "../context/SearchContext";
@@ -7,6 +7,8 @@ import axios from "axios";
 function Navbar() {
   const { setMovies, query, setQuery } = useContext(SearchContext);
   const api_key = import.meta.env.VITE_TMDB_KEY;
+  const location = useLocation();
+  console.log(location);
 
   const handleSearch = (e) => {
     e.preventDefault();

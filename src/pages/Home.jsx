@@ -1,5 +1,24 @@
+import { useContext } from "react";
+import { SearchContext } from "../context/SearchContext";
+
 function Home() {
-  return <div>Home</div>;
+  const { movies } = useContext(SearchContext);
+
+  return (
+    <div>
+      {movies.length > 0 ? (
+        <ul>
+          {movies.map((movie) => (
+            <li key={movie.id}>
+              {movie.title} ({movie.release_date})
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Nessun film cercato</p>
+      )}
+    </div>
+  );
 }
 
 export default Home;

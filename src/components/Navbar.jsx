@@ -1,12 +1,18 @@
-import React from "react";
-
+import { NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Navbar w/ text
-        </a>
+        <NavLink className="navbar-brand" to="/">
+          <img
+            src={logo}
+            alt="Boolflix logo"
+            width="auto"
+            height="24"
+            className="d-inline-block align-text-top"
+          />
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -21,19 +27,34 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <NavLink className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
-              </a>
+              <NavLink className="nav-link" to="/SerieTv">
+                Serie Tv
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Pricing
-              </a>
+              <NavLink className="nav-link" to="/Film">
+                Film
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/Originali">
+                Originali
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/AggiuntiDiRecente">
+                Aggiunti di recente
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/LaMiaLista">
+                La mia Lista
+              </NavLink>
             </li>
           </ul>
           <span className="navbar-text">

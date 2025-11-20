@@ -18,7 +18,7 @@ function Card({ movie }) {
   for (let i = 0; i < 5; i++) {
     stars.push(
       <span key={i} className={i < vote5 ? "text-warning" : "text-secondary"}>
-        ★
+        <i className="bi bi-star-fill me-1"></i>
       </span>
     );
   }

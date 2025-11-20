@@ -19,11 +19,11 @@ function Navbar() {
     if (location.pathname === "/SerieTv") {
       endpoint = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${encodeURIComponent(
         query
-      )}`;
+      )}&include_adult=${adultContent}`;
     } else {
       endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${encodeURIComponent(
         query
-      )}`;
+      )}&include_adult=${adultContent}`;
     }
 
     axios

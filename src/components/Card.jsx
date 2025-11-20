@@ -37,8 +37,13 @@ function Card({ movie }) {
             <strong>Voto:</strong>{" "}
             {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
           </p>
-          <p className="mb-3 text-uppercase">
-            <strong>Lingua:</strong> {movie.original_language || "N/A"}
+          <p className="mb-3">
+            <strong>Lingua:</strong>{" "}
+            {movie.original_language ? (
+              <span className={`fi fi-${movie.original_language}`}></span>
+            ) : (
+              "N/A"
+            )}
           </p>
           <a
             href={`https://www.themoviedb.org/${movie.title ? "movie" : "tv"}/${

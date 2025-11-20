@@ -29,6 +29,17 @@ function Card({ movie }) {
                 : movie.overview
               : "No description found"}
           </p>
+          <p className="mb-1">
+            <strong>Titolo originale:</strong>{" "}
+            {movie.original_title || movie.original_name || "N/A"}
+          </p>
+          <p className="mb-1">
+            <strong>Voto:</strong>{" "}
+            {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
+          </p>
+          <p className="mb-3 text-uppercase">
+            <strong>Lingua:</strong> {movie.original_language || "N/A"}
+          </p>
           <a
             href={`https://www.themoviedb.org/${movie.title ? "movie" : "tv"}/${
               movie.id

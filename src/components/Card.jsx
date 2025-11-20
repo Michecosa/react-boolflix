@@ -1,3 +1,16 @@
+const languageToCountry = {
+  en: "us",
+  it: "it",
+  fr: "fr",
+  es: "es",
+  de: "de",
+  ja: "jp",
+  zh: "cn",
+  ko: "kr",
+  ru: "ru",
+  pt: "pt",
+};
+
 function Card({ movie }) {
   return (
     <div className="col-md-3 mb-4" key={movie.id}>
@@ -38,13 +51,22 @@ function Card({ movie }) {
             {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
           </p>
           <p className="mb-3">
-            <strong>Lingua:</strong>{" "}
+            <strong className="me-2">Lingua:</strong>{" "}
             {movie.original_language ? (
-              <span className={`fi fi-${movie.original_language}`}></span>
+              languageToCountry[movie.original_language] ? (
+                <span
+                  className={`fi fi-${
+                    languageToCountry[movie.original_language]
+                  }`}
+                ></span>
+              ) : (
+                movie.original_language.toUpperCase()
+              )
             ) : (
               "N/A"
             )}
           </p>
+
           <a
             href={`https://www.themoviedb.org/${movie.title ? "movie" : "tv"}/${
               movie.id

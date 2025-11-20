@@ -1,14 +1,30 @@
 import { useContext, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
 import Card from "../components/Card";
+import axios from "axios";
 
 function Film() {
-  const { movies, setMovies, setQuery } = useContext(SearchContext);
+  const { movies, setMovies, query } = useContext(SearchContext);
+  const api_key = import.meta.env.VITE_TMDB_KEY;
+
+  const loadPopular = () => {
+    axios
+      .get(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`)
+      .then((response) => {
+        setMovies(response.data.results);
+      })
+      .catch((err) => console.error(err));
+  };
 
   useEffect(() => {
-    setMovies([]);
-    setQuery("");
-  }, [setMovies, setQuery]);
+    loadPopular();
+  }, []);
+
+  useEffect(() => {
+    if (!query.trim()) {
+      loadPopular();
+    }
+  }, [query]);
 
   return (
     <div className="container mt-4">

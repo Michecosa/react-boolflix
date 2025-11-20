@@ -45,3 +45,13 @@
 .card-hover:hover .overlay {
   opacity: 1;
 }
+
+.btn-danger {
+  background-color: #b11b25;
+  border-color: #b11b25;
+}
+
+.btn-danger:hover {
+  background-color: #741017;
+  border-color: #741017;
+}

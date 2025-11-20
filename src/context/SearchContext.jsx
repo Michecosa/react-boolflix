@@ -5,7 +5,6 @@ export const SearchContext = createContext();
 export const SearchProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
-  const [adultContent, setAdultContent] = useState(false);
 
   return (
     <SearchContext.Provider
@@ -14,8 +13,6 @@ export const SearchProvider = ({ children }) => {
         setMovies,
         query,
         setQuery,
-        adultContent,
-        setAdultContent,
       }}
     >
       {children}

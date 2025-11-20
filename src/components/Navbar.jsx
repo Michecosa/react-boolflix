@@ -5,8 +5,7 @@ import { SearchContext } from "../context/SearchContext";
 import axios from "axios";
 
 function Navbar() {
-  const { setMovies, query, setQuery, adultContent, setAdultContent } =
-    useContext(SearchContext);
+  const { setMovies, query, setQuery } = useContext(SearchContext);
   const api_key = import.meta.env.VITE_TMDB_KEY;
   const location = useLocation();
 
@@ -19,11 +18,11 @@ function Navbar() {
     if (location.pathname === "/SerieTv") {
       endpoint = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${encodeURIComponent(
         query
-      )}&include_adult=${adultContent}`;
+      )}`;
     } else {
       endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${encodeURIComponent(
         query
-      )}&include_adult=${adultContent}`;
+      )}`;
     }
 
     axios
@@ -91,35 +90,6 @@ function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <div className="dropdown me-3">
-            <button
-              className="btn btn-dark dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-            >
-              {adultContent ? "ADULTI " : "BAMBINI "}
-            </button>
-
-            <ul className="dropdown-menu dropdown-menu-dark">
-              <li>
-                <button
-                  className="dropdown-item"
-                  onClick={() => setAdultContent(false)}
-                >
-                  BAMBINI
-                </button>
-              </li>
-
-              <li>
-                <button
-                  className="dropdown-item"
-                  onClick={() => setAdultContent(true)}
-                >
-                  ADULTI
-                </button>
-              </li>
-            </ul>
-          </div>
 
           <form className="d-flex" role="search" onSubmit={handleSearch}>
             <input

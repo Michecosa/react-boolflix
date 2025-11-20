@@ -9,6 +9,7 @@ const languageToCountry = {
   ko: "kr",
   ru: "ru",
   pt: "pt",
+  th: "th",
 };
 
 function Card({ movie }) {

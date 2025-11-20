@@ -12,6 +12,8 @@ function Navbar() {
   const handleSearch = (e) => {
     e.preventDefault();
 
+    if (!query.trim()) return;
+
     let endpoint = "";
     if (location.pathname === "/SerieTv") {
       endpoint = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${encodeURIComponent(

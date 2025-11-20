@@ -12,6 +12,17 @@ const languageToCountry = {
 };
 
 function Card({ movie }) {
+  const vote5 = movie.vote_average ? Math.ceil(movie.vote_average / 2) : 0;
+
+  const stars = [];
+  for (let i = 0; i < 5; i++) {
+    stars.push(
+      <span key={i} className={i < vote5 ? "text-warning" : "text-secondary"}>
+        ★
+      </span>
+    );
+  }
+
   return (
     <div className="col-md-3 mb-4" key={movie.id}>
       <div className="card card-hover bg-super-dark text-white shadow-sm h-100">
@@ -33,12 +44,18 @@ function Card({ movie }) {
         )}
 
         <div className="overlay d-flex flex-column justify-content-end p-3">
-          <h4 className="fw-bold">{movie.name || movie.title}</h4>
+          <h4 className="fw-bold">
+            {movie.name || movie.title
+              ? (movie.name || movie.title).length > 30
+                ? (movie.name || movie.title).slice(0, 30) + "..."
+                : movie.name || movie.title
+              : "No title found"}
+          </h4>
 
           <p className="text-white-50">
             {movie.overview
               ? movie.overview.length > 100
-                ? movie.overview.slice(0, 200) + "..."
+                ? movie.overview.slice(0, 100) + "..."
                 : movie.overview
               : "No description found"}
           </p>
@@ -48,7 +65,7 @@ function Card({ movie }) {
           </p>
           <p className="mb-1">
             <strong>Voto:</strong>{" "}
-            {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
+            <span className="ms-1">{vote5 > 0 && stars}</span>
           </p>
           <p className="mb-3">
             <strong className="me-2">Lingua:</strong>{" "}

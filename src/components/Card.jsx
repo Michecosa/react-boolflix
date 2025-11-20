@@ -2,17 +2,23 @@ function Card({ movie }) {
   return (
     <div className="col-md-3 mb-4" key={movie.id}>
       <div className="card card-hover bg-super-dark text-white shadow-sm h-100">
-        <img
-          src={`https://image.tmdb.org/t/p/w500${
-            movie.poster_path || movie.backdrop_path
-          }`}
-          alt={movie.name || movie.title}
-          style={{
-            width: "100%",
-            height: "390px",
-            objectFit: "cover",
-          }}
-        />
+        {movie.poster_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w500${
+              movie.poster_path || movie.backdrop_path
+            }`}
+            alt={movie.name || movie.title}
+            style={{ width: "100%", height: "390px", objectFit: "cover" }}
+          />
+        ) : (
+          <div
+            className="d-flex align-items-center justify-content-center bg-dark text-white"
+            style={{ height: "100%" }}
+          >
+            No image found
+          </div>
+        )}
+
         <div className="overlay d-flex flex-column justify-content-end p-3">
           <h4 className="fw-bold">{movie.name || movie.title}</h4>
 

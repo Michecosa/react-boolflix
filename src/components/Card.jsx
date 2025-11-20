@@ -1,37 +1,25 @@
 function Card({ movie }) {
   return (
     <div className="col-md-3 mb-4" key={movie.id}>
-      <div className="card bg-super-dark text-white-50 shadow-sm h-100">
-        <div style={{ height: "390px", overflow: "hidden" }}>
-          {movie.poster_path ? (
-            <img
-              src={`https://image.tmdb.org/t/p/w500${
-                movie.poster_path || movie.backdrop_path
-              }`}
-              alt={movie.name || movie.title}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
-          ) : (
-            <div
-              className="d-flex align-items-center justify-content-center bg-secondary text-white"
-              style={{ height: "100%" }}
-            >
-              No image found
-            </div>
-          )}
-        </div>
-        <div className="card-body d-flex flex-column p-4">
-          <h4 className="card-title text-white fw-bold">
-            {movie.name || movie.title}
-          </h4>
-          <p className="card-text" style={{ flexGrow: 1 }}>
+      <div className="card card-hover bg-super-dark text-white shadow-sm h-100">
+        <img
+          src={`https://image.tmdb.org/t/p/w500${
+            movie.poster_path || movie.backdrop_path
+          }`}
+          alt={movie.name || movie.title}
+          style={{
+            width: "100%",
+            height: "390px",
+            objectFit: "cover",
+          }}
+        />
+        <div className="overlay d-flex flex-column justify-content-end p-3">
+          <h4 className="fw-bold">{movie.name || movie.title}</h4>
+
+          <p className="text-white-50">
             {movie.overview
               ? movie.overview.length > 100
-                ? movie.overview.slice(0, 100) + "..."
+                ? movie.overview.slice(0, 200) + "..."
                 : movie.overview
               : "No description found"}
           </p>

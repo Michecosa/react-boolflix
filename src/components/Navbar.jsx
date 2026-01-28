@@ -17,11 +17,11 @@ function Navbar() {
     let endpoint = "";
     if (location.pathname === "/SerieTv") {
       endpoint = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${encodeURIComponent(
-        query
+        query,
       )}`;
     } else {
       endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${encodeURIComponent(
-        query
+        query,
       )}`;
     }
 
@@ -66,27 +66,27 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/SerieTv">
-                Serie Tv
+                TV Shows
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/Film">
-                Film
+                Movies
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/Originali">
-                Originali
+                Originals
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/AggiuntiDiRecente">
-                Aggiunti di recente
+                Recently Added
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/LaMiaLista">
-                La mia Lista
+                My List
               </NavLink>
             </li>
           </ul>

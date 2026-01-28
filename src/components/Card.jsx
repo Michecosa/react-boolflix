@@ -20,7 +20,7 @@ function Card({ movie }) {
     stars.push(
       <span key={i} className={i < vote5 ? "text-warning" : "text-secondary"}>
         <i className="bi bi-star-fill me-1"></i>
-      </span>
+      </span>,
     );
   }
 
@@ -61,15 +61,15 @@ function Card({ movie }) {
               : "No description found"}
           </p>
           <p className="mb-1">
-            <strong>Titolo originale:</strong>{" "}
+            <strong>Original Title:</strong>{" "}
             {movie.original_title || movie.original_name || "N/A"}
           </p>
           <p className="mb-1">
-            <strong>Voto:</strong>{" "}
+            <strong>Rating:</strong>{" "}
             <span className="ms-1">{vote5 > 0 && stars}</span>
           </p>
           <p className="mb-3">
-            <strong className="me-2">Lingua:</strong>{" "}
+            <strong className="me-2">Language:</strong>{" "}
             {movie.original_language ? (
               languageToCountry[movie.original_language] ? (
                 <span
@@ -92,7 +92,7 @@ function Card({ movie }) {
             target="_blank"
             className="btn btn-danger mt-auto"
           >
-            Dettagli
+            Details
           </a>
         </div>
       </div>
